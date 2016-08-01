@@ -14,6 +14,7 @@
 		899028D61D4E2CF800F03D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 899028D51D4E2CF800F03D09 /* Assets.xcassets */; };
 		899028D91D4E2CF800F03D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899028D71D4E2CF800F03D09 /* LaunchScreen.storyboard */; };
 		899028E31D4F666C00F03D09 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899028E21D4F666C00F03D09 /* ThirdViewController.swift */; };
+		899028E51D4FE31A00F03D09 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899028E41D4FE31A00F03D09 /* FourthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		899028D81D4E2CF800F03D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		899028DA1D4E2CF800F03D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		899028E21D4F666C00F03D09 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		899028E41D4FE31A00F03D09 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				899028D71D4E2CF800F03D09 /* LaunchScreen.storyboard */,
 				899028DA1D4E2CF800F03D09 /* Info.plist */,
 				899028E21D4F666C00F03D09 /* ThirdViewController.swift */,
+				899028E41D4FE31A00F03D09 /* FourthViewController.swift */,
 			);
 			path = Alexandria;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				899028CD1D4E2CF600F03D09 /* AppDelegate.swift in Sources */,
 				899028E31D4F666C00F03D09 /* ThirdViewController.swift in Sources */,
 				899028CF1D4E2CF600F03D09 /* FirstViewController.swift in Sources */,
+				899028E51D4FE31A00F03D09 /* FourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

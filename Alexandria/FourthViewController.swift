@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  FourthViewController.swift
 //  Alexandria
 //
 //  Created by Cosimo Davide Viggiano on 01/08/16.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class FourthViewController: UIViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //Some code...
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        //Some code...
     }
     
 }
