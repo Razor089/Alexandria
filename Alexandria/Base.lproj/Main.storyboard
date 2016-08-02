@@ -57,6 +57,7 @@
                                 <connections>
                                     <outlet property="subtitleLabel" destination="SUx-Pp-oca" id="aid-VJ-IZo"/>
                                     <outlet property="titleLabel" destination="Od8-v3-J2m" id="aoS-Ly-mmB"/>
+                                    <segue destination="mQA-3W-aZe" kind="show" identifier="showDetail" id="Wra-bf-9aR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -207,7 +208,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n88-zv-ly4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Zji-YO-PNG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="630"/>
+            <point key="canvasLocation" x="2868" y="-116"/>
         </scene>
         <!--Libri-->
         <scene sceneID="anD-dt-oLK">
@@ -245,10 +246,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZS-xN-cYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1470" y="630"/>
+            <point key="canvasLocation" x="2176" y="250"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wra-bf-9aR"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -28,13 +28,22 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         authorTextField.delegate = self
         genreTextField.delegate = self
         
+        if let item = item {
+            titleTextField.text = item.name
+            authorTextField.text = item.author
+            genreTextField.text = item.genre
+            mineSwitch.setOn(item.mine, animated: true)
+            suggestSwitch.setOn(item.suggest, animated: true)
+            navigationItem.title = item.name
+        }
+        
         checkTitleNotNull()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
-        authorTextField.resignFirstResponder()
-        genreTextField.resignFirstResponder()
+        //authorTextField.resignFirstResponder()
+        //genreTextField.resignFirstResponder()
         return true
     }
     
@@ -61,7 +70,14 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     //MARK: Navigation
     
     @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+        let isPresentedInAddItemMode = presentingViewController is UINavigationController
+        print("Is presented in Add item Mode: ", isPresentedInAddItemMode)
+        if isPresentedInAddItemMode {
+            dismissViewControllerAnimated(true, completion: nil)
+            print("mi sto chiudendo...forse")
+        } else {
+            navigationController!.popViewControllerAnimated(true)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -72,7 +88,7 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
             let mine = mineSwitch.on
             let suggest = suggestSwitch.on
             
-            item = Item(name: title, type: "Libro", genre: author, author: genre, mine: mine, suggest: suggest)
+            item = Item(name: title, type: "Libro", genre: genre, author: author, mine: mine, suggest: suggest)
         }
     }
     
