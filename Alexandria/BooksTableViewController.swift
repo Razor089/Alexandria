@@ -110,5 +110,16 @@ class BooksTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Actions
+    
+    @IBAction func unwindToBookTable(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? ViewDettagli, item = sourceViewController.item {
+            
+            let newIndexPath = NSIndexPath(forRow: bookItems.count, inSection: 0)
+            bookItems.append(item)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        }
+    }
 
 }

@@ -89,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-3V-8Qj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-3V-8Qj">
                                 <rect key="frame" x="20" y="80" width="560" height="298"/>
                                 <subviews>
                                     <stackView opaque="NO" tag="12" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UPI-fJ-57V">
@@ -177,25 +177,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CwW-3V-8Qj" secondAttribute="trailing" id="1oV-cR-vRI"/>
-                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="IU5-6C-rxG"/>
+                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="16" id="IU5-6C-rxG"/>
                             <constraint firstItem="CwW-3V-8Qj" firstAttribute="leading" secondItem="Sd3-37-l2v" secondAttribute="leadingMargin" id="NSt-QA-XjG"/>
-                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="NtC-Wy-rof"/>
-                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="Yts-8h-CT7"/>
+                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="16" id="NtC-Wy-rof"/>
+                            <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="16" id="Yts-8h-CT7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aggiungi nuovo libro" id="rtb-Yo-aAr">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q0v-Ek-AhZ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EpB-AG-JKU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EpB-AG-JKU">
+                            <connections>
+                                <segue destination="Zji-YO-PNG" kind="unwind" unwindAction="unwindToBookTable:" id="P64-Br-V4x"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="authorTextField" destination="Voj-13-AN2" id="4ra-yo-nQb"/>
                         <outlet property="genreTextField" destination="wtN-1E-b9o" id="6NF-9x-Ofa"/>
                         <outlet property="mineSwitch" destination="Fw0-96-TOd" id="ltG-JL-KZg"/>
+                        <outlet property="saveButton" destination="EpB-AG-JKU" id="3Rf-1T-E8K"/>
                         <outlet property="suggestSwitch" destination="z6a-ZC-tnI" id="vei-Bm-HW4"/>
                         <outlet property="titleTextField" destination="riq-GM-yMT" id="9RH-Fm-bg4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n88-zv-ly4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zji-YO-PNG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2282" y="630"/>
         </scene>

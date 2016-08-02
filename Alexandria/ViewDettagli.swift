@@ -18,6 +18,8 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     @IBOutlet weak var genreTextField: UITextField!
     @IBOutlet weak var mineSwitch: UISwitch!
     @IBOutlet weak var suggestSwitch: UISwitch!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    var item: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         return true
     }
     
+    // MARKS: UITextFieldDelegate
+    
     func textFieldDidEndEditing(textField: UITextField) {
         // Insert some code here...
     }
@@ -42,13 +46,18 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         // Insert some code here...
     }
     
-    //MARK: Actions
+    //MARK: Navigation
     
-    @IBAction func azioneConferma(sender: UIButton) {
-        
-        print("Modifiche effettuate")
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            let title = titleTextField.text ?? ""
+            let author = authorTextField.text ?? ""
+            let genre = genreTextField.text ?? ""
+            let mine = mineSwitch.on
+            let suggest = suggestSwitch.on
+            
+            item = Item(name: title, type: "Libro", genre: author, author: genre, mine: mine, suggest: suggest)
+        }
     }
-    
     
 }
