@@ -184,7 +184,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aggiungi nuovo libro" id="rtb-Yo-aAr">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q0v-Ek-AhZ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q0v-Ek-AhZ">
+                            <connections>
+                                <action selector="cancel:" destination="mQA-3W-aZe" id="xdV-EJ-eI4"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EpB-AG-JKU">
                             <connections>
                                 <segue destination="Zji-YO-PNG" kind="unwind" unwindAction="unwindToBookTable:" id="P64-Br-V4x"/>

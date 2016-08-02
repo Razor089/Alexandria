@@ -27,6 +27,8 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         titleTextField.delegate = self
         authorTextField.delegate = self
         genreTextField.delegate = self
+        
+        checkTitleNotNull()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -38,8 +40,18 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     
     // MARKS: UITextFieldDelegate
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        saveButton.enabled = false
+    }
+    
+    func checkTitleNotNull() {
+        let text = titleTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
-        // Insert some code here...
+        checkTitleNotNull()
+        navigationItem.title = textField.text
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +59,10 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     }
     
     //MARK: Navigation
+    
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
