@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ro3-Bd-Ywl" kind="relationship" relationship="viewControllers" id="LHV-5P-wne"/>
+                        <segue destination="mQA-3W-aZe" kind="relationship" relationship="viewControllers" id="hy8-X7-7bo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -29,18 +29,36 @@
         <scene sceneID="OCr-nH-u30">
             <objects>
                 <tableViewController title="Vista Libri" id="ro3-Bd-Ywl" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ere-t2-KF0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ere-t2-KF0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lAm-z5-nxy">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="lAm-z5-nxy" customClass="BooksTableViewCell" customModule="Alexandria" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lAm-z5-nxy" id="LEX-o4-YiK">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Od8-v3-J2m">
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUx-Pp-oca">
+                                            <rect key="frame" x="8" y="30" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="SUx-Pp-oca" id="aid-VJ-IZo"/>
+                                    <outlet property="titleLabel" destination="Od8-v3-J2m" id="aoS-Ly-mmB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -150,26 +168,11 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spu-8H-ODi">
-                                <rect key="frame" x="20" y="550" width="71" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Spu-8H-ODi" secondAttribute="height" multiplier="71:30" id="RS9-Ns-lcH"/>
-                                    <constraint firstAttribute="width" secondItem="Spu-8H-ODi" secondAttribute="height" multiplier="71:30" id="vK5-oM-teA"/>
-                                </constraints>
-                                <state key="normal" title="Annulla"/>
-                                <connections>
-                                    <action selector="cancelAction:" destination="mQA-3W-aZe" eventType="touchUpInside" id="cig-6O-Q6A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwS-7F-4Mg">
-                                <rect key="frame" x="485" y="550" width="95" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dwS-7F-4Mg" secondAttribute="height" multiplier="19:6" id="7iF-K0-Irr"/>
-                                    <constraint firstAttribute="width" secondItem="dwS-7F-4Mg" secondAttribute="height" multiplier="19:6" id="Mnj-vz-Upu"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmv-kn-Xjn">
+                                <rect key="frame" x="512" y="386" width="68" height="30"/>
                                 <state key="normal" title="Conferma"/>
                                 <connections>
-                                    <action selector="confirmAction:" destination="mQA-3W-aZe" eventType="touchUpInside" id="EP1-ta-Abg"/>
+                                    <action selector="azioneConferma:" destination="mQA-3W-aZe" eventType="touchUpInside" id="FMy-ej-emv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -177,21 +180,16 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CwW-3V-8Qj" secondAttribute="trailing" id="1oV-cR-vRI"/>
                             <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="IU5-6C-rxG"/>
+                            <constraint firstItem="Wmv-kn-Xjn" firstAttribute="trailing" secondItem="Sd3-37-l2v" secondAttribute="trailingMargin" id="LOo-of-AtV"/>
                             <constraint firstItem="CwW-3V-8Qj" firstAttribute="leading" secondItem="Sd3-37-l2v" secondAttribute="leadingMargin" id="NSt-QA-XjG"/>
                             <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="NtC-Wy-rof"/>
-                            <constraint firstItem="Spu-8H-ODi" firstAttribute="leading" secondItem="Sd3-37-l2v" secondAttribute="leadingMargin" id="SHW-JG-bmY"/>
-                            <constraint firstItem="dwS-7F-4Mg" firstAttribute="trailing" secondItem="Sd3-37-l2v" secondAttribute="trailingMargin" id="Ue5-7w-MRd"/>
-                            <constraint firstItem="dwS-7F-4Mg" firstAttribute="trailing" secondItem="Sd3-37-l2v" secondAttribute="trailingMargin" id="Vka-ty-42i"/>
-                            <constraint firstItem="Spu-8H-ODi" firstAttribute="leading" secondItem="Sd3-37-l2v" secondAttribute="leadingMargin" id="WAW-gI-E2T"/>
                             <constraint firstItem="CwW-3V-8Qj" firstAttribute="top" secondItem="gPB-6n-uzD" secondAttribute="bottom" constant="60" id="Yts-8h-CT7"/>
-                            <constraint firstItem="RQf-by-a9c" firstAttribute="top" secondItem="Spu-8H-ODi" secondAttribute="bottom" constant="20" id="aTf-1C-cdr"/>
-                            <constraint firstItem="RQf-by-a9c" firstAttribute="top" secondItem="dwS-7F-4Mg" secondAttribute="bottom" constant="20" id="dXB-Pv-qWH"/>
+                            <constraint firstItem="Wmv-kn-Xjn" firstAttribute="top" secondItem="CwW-3V-8Qj" secondAttribute="bottom" constant="8" id="cOl-f3-pY5"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="l7E-8G-ey3"/>
                     <connections>
                         <outlet property="authorTextField" destination="Voj-13-AN2" id="4ra-yo-nQb"/>
-                        <outlet property="cancelButton" destination="Spu-8H-ODi" id="KS0-LB-OGw"/>
-                        <outlet property="confirmButton" destination="dwS-7F-4Mg" id="KYw-7a-Sjk"/>
                         <outlet property="genreTextField" destination="wtN-1E-b9o" id="6NF-9x-Ofa"/>
                         <outlet property="mineSwitch" destination="Fw0-96-TOd" id="ltG-JL-KZg"/>
                         <outlet property="suggestSwitch" destination="z6a-ZC-tnI" id="vei-Bm-HW4"/>

@@ -13,6 +13,7 @@
 		899028D91D4E2CF800F03D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899028D71D4E2CF800F03D09 /* LaunchScreen.storyboard */; };
 		899028E71D502B6100F03D09 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899028E61D502B6100F03D09 /* Item.swift */; };
 		899028E91D5037BA00F03D09 /* ViewDettagli.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899028E81D5037BA00F03D09 /* ViewDettagli.swift */; };
+		899028F11D50BD8600F03D09 /* BooksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899028F01D50BD8600F03D09 /* BooksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		899028DA1D4E2CF800F03D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		899028E61D502B6100F03D09 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		899028E81D5037BA00F03D09 /* ViewDettagli.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDettagli.swift; sourceTree = "<group>"; };
+		899028F01D50BD8600F03D09 /* BooksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				899028DA1D4E2CF800F03D09 /* Info.plist */,
 				899028E61D502B6100F03D09 /* Item.swift */,
 				899028E81D5037BA00F03D09 /* ViewDettagli.swift */,
+				899028F01D50BD8600F03D09 /* BooksTableViewCell.swift */,
 			);
 			path = Alexandria;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899028F11D50BD8600F03D09 /* BooksTableViewCell.swift in Sources */,
 				899028E91D5037BA00F03D09 /* ViewDettagli.swift in Sources */,
 				899028CD1D4E2CF600F03D09 /* AppDelegate.swift in Sources */,
 				899028E71D502B6100F03D09 /* Item.swift in Sources */,
