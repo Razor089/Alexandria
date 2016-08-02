@@ -28,14 +28,14 @@
         <!--Vista Libri-->
         <scene sceneID="OCr-nH-u30">
             <objects>
-                <tableViewController title="Vista Libri" id="ro3-Bd-Ywl" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ere-t2-KF0">
+                <tableViewController title="Vista Libri" id="ro3-Bd-Ywl" customClass="BooksTableViewController" customModule="Alexandria" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="50" sectionFooterHeight="28" id="Ere-t2-KF0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="lAm-z5-nxy" customClass="BooksTableViewCell" customModule="Alexandria" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BooksTableViewCell" rowHeight="60" id="lAm-z5-nxy" customClass="BooksTableViewCell" customModule="Alexandria" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lAm-z5-nxy" id="LEX-o4-YiK">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
