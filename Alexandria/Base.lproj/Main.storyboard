@@ -65,7 +65,9 @@
                             <outlet property="delegate" destination="ro3-Bd-Ywl" id="2YB-Te-PNQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HNf-I6-ez6"/>
+                    <navigationItem key="navigationItem" title="LIbri" id="HNf-I6-ez6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jkw-Lx-GS2"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1M-A2-Hmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
