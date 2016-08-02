@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewDettagli: UIViewController, UITextFieldDelegate {
+class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
     

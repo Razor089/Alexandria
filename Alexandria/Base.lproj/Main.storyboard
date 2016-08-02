@@ -17,8 +17,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ro3-Bd-Ywl" kind="relationship" relationship="viewControllers" id="LHV-5P-wne"/>
-                        <segue destination="mQA-3W-aZe" kind="relationship" relationship="viewControllers" id="hy8-X7-7bo"/>
+                        <segue destination="Qiu-Qs-bjb" kind="relationship" relationship="viewControllers" id="LHV-5P-wne"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -35,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BooksTableViewCell" rowHeight="60" id="lAm-z5-nxy" customClass="BooksTableViewCell" customModule="Alexandria" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lAm-z5-nxy" id="LEX-o4-YiK">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
@@ -66,11 +65,11 @@
                             <outlet property="delegate" destination="ro3-Bd-Ywl" id="2YB-Te-PNQ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Libri" image="first" id="ibj-8i-gH8"/>
+                    <navigationItem key="navigationItem" id="HNf-I6-ez6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1M-A2-Hmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="-116"/>
+            <point key="canvasLocation" x="1470" y="-116"/>
         </scene>
         <!--ViewDettagli-->
         <scene sceneID="hTX-HR-ZaY">
@@ -199,6 +198,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n88-zv-ly4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="658" y="568"/>
+        </scene>
+        <!--Libri-->
+        <scene sceneID="anD-dt-oLK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qiu-Qs-bjb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Libri" image="first" id="ibj-8i-gH8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fEK-bU-Q5O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ro3-Bd-Ywl" kind="relationship" relationship="rootViewController" id="9Gb-va-MmF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEb-0Q-Me8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658" y="-116"/>
         </scene>
     </scenes>
     <resources>
