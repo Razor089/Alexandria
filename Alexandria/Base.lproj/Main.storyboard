@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="LIbri" id="HNf-I6-ez6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jkw-Lx-GS2">
                             <connections>
-                                <segue destination="KMS-FI-wQr" kind="presentation" identifier="AddItem" id="cmF-SE-ycq"/>
+                                <segue destination="KMS-FI-wQr" kind="presentation" id="OQt-UC-Cfm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -187,7 +187,7 @@
                     <navigationItem key="navigationItem" title="Aggiungi nuovo libro" id="rtb-Yo-aAr">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q0v-Ek-AhZ">
                             <connections>
-                                <action selector="cancel:" destination="mQA-3W-aZe" id="xdV-EJ-eI4"/>
+                                <action selector="cancel:" destination="mQA-3W-aZe" id="W8U-sf-oqz"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EpB-AG-JKU">
@@ -253,6 +253,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wra-bf-9aR"/>
+        <segue reference="UK2-f2-xGY"/>
     </inferredMetricsTieBreakers>
 </document>

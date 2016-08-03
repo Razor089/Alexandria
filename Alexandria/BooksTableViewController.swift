@@ -12,7 +12,7 @@ class BooksTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    var bookItems = [Item?]()
+    var bookItems = [Libro]()
     
 
     override func viewDidLoad() {
@@ -24,15 +24,20 @@ class BooksTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        loadSampleBooks()
+        if let savedItems = loadItems() {
+            print("Aggiungendo gli oggetti")
+            bookItems += savedItems
+        } else {
+            loadSampleBooks()
+        }
     }
     
     func loadSampleBooks() {
-        let book1 = Item(name: "Il Signore degli Anelli", type: "Libro", genre: "Fantasy", author: "J.R.R. Tolkien", mine: true, suggest: false)
+        let book1 = Libro(name: "Il Signore degli Anelli", genre: "Fantasy", author: "J.R.R. Tolkien", mine: true, suggest: false)!
         
-        let book2 = Item(name: "La Guerra dei Mondi", type: "Libro", genre: "Fantascienza", author: "H.G. Wells", mine: false, suggest: false)
+        let book2 = Libro(name: "La Guerra dei Mondi", genre: "Fantascienza", author: "H.G. Wells", mine: false, suggest: false)!
         
-        let book3 = Item(name: "Il Ciclo delle Fondazioni", type: "Libro", genre: "Fantascienza", author: "Isaac Asimov", mine: true, suggest: false)
+        let book3 = Libro(name: "Il Ciclo delle Fondazioni", genre: "Fantascienza", author: "Isaac Asimov", mine: true, suggest: false)!
         
         bookItems += [book1, book2, book3]
         
@@ -60,8 +65,19 @@ class BooksTableViewController: UITableViewController {
 
         let book = bookItems[indexPath.row]
         
-        cell.titleLabel.text = book?.name
-        cell.subtitleLabel.text = book?.author
+        cell.titleLabel.text = book.name
+        cell.subtitleLabel.text = book.author
+        
+        if book.mine {
+            cell.titleLabel.textColor = UIColor.blackColor()
+            cell.subtitleLabel.textColor = UIColor.blackColor()
+        } else if book.suggest {
+            cell.titleLabel.textColor = UIColor.blueColor()
+            cell.subtitleLabel.textColor = UIColor.blueColor()
+        } else {
+            cell.titleLabel.textColor = UIColor.redColor()
+            cell.subtitleLabel.textColor = UIColor.redColor()
+        }
 
         return cell
     }
@@ -77,6 +93,7 @@ class BooksTableViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             bookItems.removeAtIndex(indexPath.row)
+            saveItems()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -108,26 +125,42 @@ class BooksTableViewController: UITableViewController {
             if let selectedBookCell = sender as? BooksTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedBookCell)!
                 let selectedBook = bookItems[indexPath.row]
-                viewDettagli.item = selectedBook
+                viewDettagli.libro = selectedBook
             }
         } else if segue.identifier == "AddItem" {
             print("Add new book")
         }
     }
     
+    // MARK: NSCoding
+    
+    
+    func saveItems() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(bookItems, toFile: Libro.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to Save")
+        }
+    }
+    
+    func loadItems() -> [Libro]? {
+        print("Caricando gli oggetti")
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Libro.ArchiveURL.path!) as? [Libro]
+    }
+    
     // MARK: Actions
     
     @IBAction func unwindToBookTable(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? ViewDettagli, item = sourceViewController.item {
+        if let sourceViewController = sender.sourceViewController as? ViewDettagli, libro = sourceViewController.libro {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                bookItems[selectedIndexPath.row] = item
+                bookItems[selectedIndexPath.row] = libro
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Automatic)
             } else {
                 let newIndexPath = NSIndexPath(forRow: bookItems.count, inSection: 0)
-                bookItems.append(item)
+                bookItems.append(libro)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
+            saveItems()
         }
     }
 

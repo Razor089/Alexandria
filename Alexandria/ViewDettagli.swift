@@ -19,7 +19,7 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     @IBOutlet weak var mineSwitch: UISwitch!
     @IBOutlet weak var suggestSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    var item: Item?
+    var libro: Libro?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,13 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         authorTextField.delegate = self
         genreTextField.delegate = self
         
-        if let item = item {
-            titleTextField.text = item.name
-            authorTextField.text = item.author
-            genreTextField.text = item.genre
-            mineSwitch.setOn(item.mine, animated: true)
-            suggestSwitch.setOn(item.suggest, animated: true)
-            navigationItem.title = item.name
+        if let libro = libro {
+            titleTextField.text = libro.name
+            authorTextField.text = libro.author
+            genreTextField.text = libro.genre
+            mineSwitch.setOn(libro.mine, animated: true)
+            suggestSwitch.setOn(libro.suggest, animated: true)
+            navigationItem.title = libro.name
         }
         
         checkTitleNotNull()
@@ -42,8 +42,8 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
-        //authorTextField.resignFirstResponder()
-        //genreTextField.resignFirstResponder()
+        authorTextField.resignFirstResponder()
+        genreTextField.resignFirstResponder()
         return true
     }
     
@@ -60,7 +60,7 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     
     func textFieldDidEndEditing(textField: UITextField) {
         checkTitleNotNull()
-        navigationItem.title = textField.text
+        //navigationItem.title = textField.text
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,8 +70,9 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     //MARK: Navigation
     
     @IBAction func cancel(sender: UIBarButtonItem) {
-        let isPresentedInAddItemMode = presentingViewController is UINavigationController
-        print("Is presented in Add item Mode: ", isPresentedInAddItemMode)
+        let isPresentedInAddItemMode = presentingViewController is UITabBarController
+        
+        print("Is presented in Add item Mode: ", isPresentedInAddItemMode, " ", presentingViewController.debugDescription)
         if isPresentedInAddItemMode {
             dismissViewControllerAnimated(true, completion: nil)
             print("mi sto chiudendo...forse")
@@ -88,7 +89,7 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
             let mine = mineSwitch.on
             let suggest = suggestSwitch.on
             
-            item = Item(name: title, type: "Libro", genre: genre, author: author, mine: mine, suggest: suggest)
+            libro = Libro(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
         }
     }
     
