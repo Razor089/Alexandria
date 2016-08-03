@@ -18,6 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Qiu-Qs-bjb" kind="relationship" relationship="viewControllers" id="LHV-5P-wne"/>
+                        <segue destination="6mI-1P-Q08" kind="relationship" relationship="viewControllers" id="JZd-zC-Eu1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -66,7 +67,7 @@
                             <outlet property="delegate" destination="ro3-Bd-Ywl" id="2YB-Te-PNQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="LIbri" id="HNf-I6-ez6">
+                    <navigationItem key="navigationItem" title="Libri" id="HNf-I6-ez6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jkw-Lx-GS2">
                             <connections>
                                 <segue destination="KMS-FI-wQr" kind="presentation" id="OQt-UC-Cfm"/>
@@ -229,6 +230,35 @@
             </objects>
             <point key="canvasLocation" x="658" y="-116"/>
         </scene>
+        <!--Vista Film-->
+        <scene sceneID="h6w-fk-Tz4">
+            <objects>
+                <tableViewController title="Vista Film" id="6mI-1P-Q08" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="O5Q-RJ-vFe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="kSg-XM-qes">
+                                <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kSg-XM-qes" id="VGU-qa-vLV">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6mI-1P-Q08" id="fZK-Sh-nQa"/>
+                            <outlet property="delegate" destination="6mI-1P-Q08" id="ulL-UP-rCz"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Film" image="first" selectedImage="first" id="w5d-b0-Ytg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tb-Jj-v5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="658" y="563"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Sgf-xW-Cws">
             <objects>
@@ -253,6 +283,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UK2-f2-xGY"/>
+        <segue reference="Wra-bf-9aR"/>
     </inferredMetricsTieBreakers>
 </document>
