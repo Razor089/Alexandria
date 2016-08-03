@@ -20,6 +20,8 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
     @IBOutlet weak var suggestSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var libro: Libro?
+    var film: Film?
+    var sourceIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,15 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
             mineSwitch.setOn(libro.mine, animated: true)
             suggestSwitch.setOn(libro.suggest, animated: true)
             navigationItem.title = libro.name
+            sourceIndex = 0
+        } else if let film = film {
+            titleTextField.text = film.name
+            authorTextField.text = film.author
+            genreTextField.text = film.genre
+            mineSwitch.setOn(film.mine, animated: true)
+            suggestSwitch.setOn(film.suggest, animated: true)
+            navigationItem.title = film.name
+            sourceIndex = 1
         }
         
         checkTitleNotNull()
@@ -75,7 +86,6 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
         print("Is presented in Add item Mode: ", isPresentedInAddItemMode, " ", presentingViewController.debugDescription)
         if isPresentedInAddItemMode {
             dismissViewControllerAnimated(true, completion: nil)
-            print("mi sto chiudendo...forse")
         } else {
             navigationController!.popViewControllerAnimated(true)
         }
@@ -89,7 +99,35 @@ class ViewDettagli: UIViewController, UITextFieldDelegate, UINavigationControlle
             let mine = mineSwitch.on
             let suggest = suggestSwitch.on
             
-            libro = Libro(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
+            print(presentingViewController)
+            
+            switch sourceIndex {
+            case 0?:
+                libro = Libro(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
+                break
+            case 1?:
+                film = Film(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
+                self.performSegueWithIdentifier("returnToFilm", sender: self)
+                break
+            default:
+                break
+            }
+            
+            if let tabBar = presentingViewController as? UITabBarController {
+                switch tabBar.selectedIndex {
+                case 0:
+                    libro = Libro(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
+                    break
+                case 1:
+                    film = Film(name: title, genre: genre, author: author, mine: mine, suggest: suggest)
+                    self.performSegueWithIdentifier("returnToFilm", sender: self)
+                    break
+                default:
+                    break
+                }
+                
+            }
+            
         }
     }
     

@@ -151,7 +151,7 @@ class BooksTableViewController: UITableViewController {
     
     @IBAction func unwindToBookTable(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? ViewDettagli, libro = sourceViewController.libro {
-            
+            print("unwindBook")
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 bookItems[selectedIndexPath.row] = libro
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Automatic)
@@ -162,6 +162,7 @@ class BooksTableViewController: UITableViewController {
             }
             saveItems()
         }
+        
     }
 
 }

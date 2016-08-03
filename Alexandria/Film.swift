@@ -1,15 +1,16 @@
 //
-//  Item.swift
+//  Film.swift
 //  Alexandria
 //
-//  Created by Cosimo Davide Viggiano on 02/08/16.
+//  Created by Cosimo Davide Viggiano on 03/08/16.
 //  Copyright © 2016 Cosimo Davide Viggiano. All rights reserved.
 //
 
 import UIKit
 
-class Libro: NSObject, NSCoding {
-    // MARK: Properties
+class Film: NSObject, NSCoding {
+    
+    // MARK: properties
     
     var name: String = ""
     var genre: String?
@@ -28,12 +29,11 @@ class Libro: NSObject, NSCoding {
     // MARK: Archiving Paths
     
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("books")
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("films")
     
     // MARK: Initialization
     
     init?(name: String, genre: String?, author: String?, mine: Bool, suggest: Bool) {
-        
         self.name = name
         self.genre = genre
         self.author = author
