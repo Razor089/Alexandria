@@ -18,8 +18,11 @@ class FilmTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem()
-        
-        loadSampleFilm()
+        if let savedItems = loadItems() {
+            films += savedItems
+        } else {
+            loadSampleFilm()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,6 +76,7 @@ class FilmTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             films.removeAtIndex(indexPath.row)
+            saveItems()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
@@ -92,6 +96,19 @@ class FilmTableViewController: UITableViewController {
         }
     }
     
+    // MARK: NSCoding
+    
+    func saveItems() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(films, toFile: Film.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to Save")
+        }
+    }
+    
+    func loadItems() -> [Film]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Film.ArchiveURL.path!) as? [Film]
+    }
+    
     // MARK: Actions
     
     @IBAction func unwindToFilmTable(sender: UIStoryboardSegue) {
@@ -105,6 +122,7 @@ class FilmTableViewController: UITableViewController {
                films.append(film)
                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             }
+            saveItems()
         }
         
     }
